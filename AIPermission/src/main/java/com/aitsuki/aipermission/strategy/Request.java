@@ -18,11 +18,6 @@ public interface Request {
     Fragment getCaller();
 
     /**
-     * 请求的宿主是否是Fragment，否则是Activity
-     */
-    boolean isFragment();
-
-    /**
      * 申请的权限
      */
     @NonNull String[] getPermissions();

@@ -1,6 +1,5 @@
 package com.aitsuki.aipermission;
 
-import com.aitsuki.aipermission.delegate.DelegateFragment;
 import com.aitsuki.aipermission.strategy.Request;
 import com.aitsuki.aipermission.strategy.Strategy;
 
@@ -22,7 +21,7 @@ public class Invoker implements Request {
     private Strategy strategy;
 
     Invoker(@NonNull Fragment fragment, @NonNull String[] permissions, int requestCode,
-            @Nullable String rationale, @Nullable Strategy strategy, @NonNull Runnable runnable) {
+            @Nullable String rationale, @NonNull Strategy strategy, @NonNull Runnable runnable) {
         this.fragment = fragment;
         this.permissions = permissions;
         this.requestCode = requestCode;
@@ -39,11 +38,6 @@ public class Invoker implements Request {
     @Override
     public Fragment getCaller() {
         return fragment;
-    }
-
-    @Override
-    public boolean isFragment() {
-        return fragment instanceof DelegateFragment;
     }
 
     @NonNull

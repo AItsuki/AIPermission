@@ -16,7 +16,6 @@ public class PermissionDispatcher {
     private Fragment fragment;
     private SparseArray<Invoker> invokers = new SparseArray<>();
 
-
     public void bind(Fragment fragment) {
         this.fragment = fragment;
     }
@@ -41,14 +40,15 @@ public class PermissionDispatcher {
                         Runnable runnable) {
         if (checkSelfPermissions(permissions)) {
             runnable.run();
-        } else {
-            Invoker invoker = invokers.get(requestCode);
-            if (invoker == null) {
-                invoker = new Invoker(fragment, permissions, requestCode, rationale, strategy, runnable);
-                invokers.put(requestCode, invoker);
-            }
-            invoker.getStrategy().beforeRequest(invoker);
+            return;
         }
+
+        Invoker invoker = invokers.get(requestCode);
+        if (invoker == null) {
+            invoker = new Invoker(fragment, permissions, requestCode, rationale, strategy, runnable);
+            invokers.put(requestCode, invoker);
+        }
+        invoker.getStrategy().beforeRequest(invoker);
     }
 
     private boolean checkSelfPermissions(String[] permissions) {
