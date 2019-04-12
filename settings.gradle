@@ -1,2 +1,3 @@
-include ':aipermission', ':aipermission-gradle-plugin'
-include 'sample'
+include ':processor', ':library', 'annotation', ':expect-template'
+//include ':aipermission', ':aipermission-gradle-plugin'
+//include 'sample'

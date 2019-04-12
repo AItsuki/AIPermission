@@ -1,0 +1,5 @@
+<resources>
+    <string name="open_camera">打开相机</string>
+    <string name="get_location">获取位置</string>
+    <string name="location_rationale">需要获取定位信息才能给您更好的服务哦~</string>
+</resources>
